@@ -1,0 +1,36 @@
+﻿{
+
+  "SimpleRoutingDemoReverseProxy": {
+    "Routes": {
+      "route-orders": {
+        "ClusterId": "cluster-orders-api",
+        "Match": {
+          "Path": "/orders/{**catch-all}"
+        }
+      },
+      "route-customers": {
+        "ClusterId": "cluster-customers-api",
+        "Match": {
+          "Path": "/customers/{**catch-all}"
+        }
+      }
+    },
+    "Clusters": {
+      "cluster-orders-api": {
+        "Destinations": {
+          "destination1": {
+            "Address": "https://orders-api"
+          }
+        }
+      },
+      "cluster-customers-api": {
+        "Destinations": {
+          "destination1": {
+            "Address": "https://customers-api"
+          }
+        }
+      }
+
+    }
+  }
+}

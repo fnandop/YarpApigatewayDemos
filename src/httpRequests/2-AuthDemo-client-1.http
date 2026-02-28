@@ -1,0 +1,63 @@
+@baseUrl = https://localhost:7150
+@authBaseUrl = https://localhost:7244
+
+
+@client_id = protected-api-client-1
+@client_secret = secret
+@scope = protected-api
+@access_token =eyJhbGciOiJSUzI1NiIsImtpZCI6IjEzNDI5NjI2MUMzQkJCMjJGNEZFOEY4NjUyODZENDkyIiwidHlwIjoiYXQrand0In0.eyJpc3MiOiJodHRwczovL2xvY2FsaG9zdDo3MjQ0IiwibmJmIjoxNzcyMzk1NzM3LCJpYXQiOjE3NzIzOTU3MzcsImV4cCI6MjA4Nzc1NTczNywic2NvcGUiOlsiY3VzdG9tZXJzLnJlYWQiLCJvcmRlcnMucmVhZCJdLCJjbGllbnRfaWQiOiJwcm90ZWN0ZWQtYXBpLWNsaWVudC0xIiwiY2xpZW50X3RlbmFudElkIjoidGVuYW50LTEiLCJqdGkiOiJBMDFERTVBNkMzNjIyQkFCM0I2NENGMzI4QkIzQzE3NiJ9.DgpY7L6jTYK5gSH97vIVOoTeMWGpDbP0fy2hDBKu9XGdWCFv4KW_pKa4okuEOBliRORdmu89sCdQF7YvgkFL3RMMAtduaXBdecAux8AtwzromHgbOzXLQCtNGfZOs00jNis6oarWTJhUXTsM3PTWnU3eLJEOd7RThxti4cods3VDGfRaCndEQN6j7VDQFWlQ6ltNpsT7xha3Ilo3Z9GfGUxOcipXK3VTCEdEKOi9gFkqsMjqHHEUSDeCMGd1HCByQszkikkLtwEjTfNcJbwPHFb7f63rXNlyUfWYwQCQYRiG5IY_6l2CpEFDJO67jqKfVxGAkckmnj-HG61cp34NdQ
+
+
+### 1) Get access token (client_credentials) and copy the access_token from the response (or use the saved variable)
+POST {{authBaseUrl}}/connect/token
+Content-Type: application/x-www-form-urlencoded
+
+grant_type=client_credentials&client_id={{client_id}}&client_secret={{client_secret}}
+
+
+
+### GET Orders from Gateway Auth Demo expected Status: 200 OK
+GET {{baseUrl}}/auth-demo/orders
+Authorization: Bearer {{access_token}}
+
+### Post Order to Gateway Auth Demo
+Post {{baseUrl}}/auth-demo/orders
+Authorization: Bearer {{access_token}}
+{
+    "prop1": "value1"
+}
+
+### Get Order with id 1 from Gateway Auth Demo
+GET {{baseUrl}}/auth-demo/orders/1
+Authorization: Bearer {{access_token}}
+
+### Put Order to Gateway Auth Demo Status: 403 Forbidden
+Put {{baseUrl}}/auth-demo/orders/1
+Authorization: Bearer {{access_token}}
+{
+    "prop1": "value1"
+}
+
+### GET customers from Gateway Auth Demo Status: 200 OK
+GET {{baseUrl}}/auth-demo/customers
+Authorization: Bearer {{access_token}}
+
+### Get Order with id 1 from Gateway Auth Demo Status: 200 OK
+GET {{baseUrl}}/auth-demo/customers/1
+Authorization: Bearer {{access_token}}
+
+
+### Post Order to Gateway Auth Demo Status: 403 Forbidden
+Post {{baseUrl}}/auth-demo/customers
+Authorization: Bearer {{access_token}}
+{
+    "prop1": "value1"
+}
+
+### Put Order to Gateway Auth Demo Status: 403 Forbidden
+Put {{baseUrl}}/auth-demo/customers/1
+Authorization: Bearer {{access_token}}
+{
+    "prop1": "value1"
+}
+

@@ -1,0 +1,69 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 18
+VisualStudioVersion = 18.3.11520.95
+MinimumVisualStudioVersion = 17.8.0.0
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "YarpApigatewayDemos.AppHost", "src\YarpApigatewayDemos.AppHost\YarpApigatewayDemos.AppHost.csproj", "{FE633482-89BE-4B37-B318-1262DC542738}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "YarpApigatewayDemos.ServiceDefaults", "src\YarpApigatewayDemos.ServiceDefaults\YarpApigatewayDemos.ServiceDefaults.csproj", "{DFC3DD0F-C6AF-487B-9675-D893CA5F30C1}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "YarpApigatewayDemos.ReverseProxy", "src\YarpApigatewayDemos.ReverseProxy\YarpApigatewayDemos.ReverseProxy.csproj", "{4A717FE2-0E2D-9C64-EE9B-5B470CB2DA4E}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "YarpApigatewayDemos.IdentityApi", "src\YarpApigatewayDemos.IdentityApi\YarpApigatewayDemos.IdentityApi.csproj", "{B19747C0-EEF1-5D73-4B65-6ACC72BDF7B4}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "httpRequests", "httpRequests", "{B43423A2-1F92-413C-AE3A-C036434A291E}"
+	ProjectSection(SolutionItems) = preProject
+		src\httpRequests\2-AuthDemo-client-1.http = src\httpRequests\2-AuthDemo-client-1.http
+		src\httpRequests\1-SimpleRoutingDemo.http = src\httpRequests\1-SimpleRoutingDemo.http
+		src\httpRequests\2-AuthDemo-client-2.http = src\httpRequests\2-AuthDemo-client-2.http
+		src\httpRequests\2-AuthDemo-Unauthorized.http = src\httpRequests\2-AuthDemo-Unauthorized.http
+		src\httpRequests\3-MultitenantRoutingDemo.http = src\httpRequests\3-MultitenantRoutingDemo.http
+	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "YarpApigatewayDemos.CustomerService", "src\YarpApigatewayDemos.CustomerService\YarpApigatewayDemos.CustomerService.csproj", "{06C7A7C4-64A5-E524-997F-B2F5223A9021}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "YarpApigatewayDemos.OrdersService", "src\YarpApigatewayDemos.Orders\YarpApigatewayDemos.OrdersService.csproj", "{68CC2860-AE20-5753-3365-41E07AB73AC1}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{2351242F-DC77-4777-BB56-DCE5158B71EE}"
+	ProjectSection(SolutionItems) = preProject
+		.editorconfig = .editorconfig
+	EndProjectSection
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{FE633482-89BE-4B37-B318-1262DC542738}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FE633482-89BE-4B37-B318-1262DC542738}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FE633482-89BE-4B37-B318-1262DC542738}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FE633482-89BE-4B37-B318-1262DC542738}.Release|Any CPU.Build.0 = Release|Any CPU
+		{DFC3DD0F-C6AF-487B-9675-D893CA5F30C1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DFC3DD0F-C6AF-487B-9675-D893CA5F30C1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DFC3DD0F-C6AF-487B-9675-D893CA5F30C1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DFC3DD0F-C6AF-487B-9675-D893CA5F30C1}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4A717FE2-0E2D-9C64-EE9B-5B470CB2DA4E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4A717FE2-0E2D-9C64-EE9B-5B470CB2DA4E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4A717FE2-0E2D-9C64-EE9B-5B470CB2DA4E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4A717FE2-0E2D-9C64-EE9B-5B470CB2DA4E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B19747C0-EEF1-5D73-4B65-6ACC72BDF7B4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B19747C0-EEF1-5D73-4B65-6ACC72BDF7B4}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B19747C0-EEF1-5D73-4B65-6ACC72BDF7B4}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B19747C0-EEF1-5D73-4B65-6ACC72BDF7B4}.Release|Any CPU.Build.0 = Release|Any CPU
+		{06C7A7C4-64A5-E524-997F-B2F5223A9021}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{06C7A7C4-64A5-E524-997F-B2F5223A9021}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{06C7A7C4-64A5-E524-997F-B2F5223A9021}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{06C7A7C4-64A5-E524-997F-B2F5223A9021}.Release|Any CPU.Build.0 = Release|Any CPU
+		{68CC2860-AE20-5753-3365-41E07AB73AC1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{68CC2860-AE20-5753-3365-41E07AB73AC1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{68CC2860-AE20-5753-3365-41E07AB73AC1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{68CC2860-AE20-5753-3365-41E07AB73AC1}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {6456CBC4-2A83-4D70-AF84-B8132C2E466B}
+	EndGlobalSection
+EndGlobal

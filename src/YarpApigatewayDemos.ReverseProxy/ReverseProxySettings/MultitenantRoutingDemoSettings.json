@@ -1,0 +1,44 @@
+﻿{
+
+  "MultitenantRoutingDemoReverseProxy": {
+    "Routes": {
+      "multitenant-route-orders": {
+        "ClusterId": "multitenant-cluster-orders-api",
+        "AuthorizationPolicy": "requireAuthenticatedUser",
+        "Match": {
+          "Path": "/multitenant/orders/{**catch-all}"
+        },
+        "Transforms": [
+          { "PathRemovePrefix": "/multitenant" }
+        ]
+      },
+      "multitenant-route-customers": {
+        "ClusterId": "multitenant-cluster-customers-api",
+        "AuthorizationPolicy": "requireAuthenticatedUser",
+        "Match": {
+          "Path": "/multitenant/customers/{**catch-all}"
+        },
+        "Transforms": [
+          { "PathRemovePrefix": "/multitenant" }
+        ]
+      }
+    },
+    "Clusters": {
+      "multitenant-cluster-orders-api": {
+        "Destinations": {
+          "destination1": {
+            "Address": "https://orders-api"
+          }
+        }
+      },
+      "multitenant-cluster-customers-api": {
+        "Destinations": {
+          "destination1": {
+            "Address": "https://customers-api"
+          }
+        }
+      }
+
+    }
+  }
+}

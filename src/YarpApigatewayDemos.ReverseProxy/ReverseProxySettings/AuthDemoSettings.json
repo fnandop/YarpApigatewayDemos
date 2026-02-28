@@ -1,0 +1,64 @@
+﻿{
+  "AuthDemoReverseProxy": {
+    "Routes": {
+      "protected-route-orders-read": {
+        "ClusterId": "protected-cluster-orders-api",
+        "AuthorizationPolicy": "ordersReadPolicy",
+        "Match": {
+          "Path": "/auth-demo/orders/{**catch-all}",
+          "Methods": [ "GET", "HEAD", "OPTIONS" ]
+        },
+        "Transforms": [
+          { "PathRemovePrefix": "/auth-demo" }
+        ]
+      },
+      "protected-route-orders-write": {
+        "ClusterId": "protected-cluster-orders-api",
+        "AuthorizationPolicy": "ordersWritePolicy",
+        "Match": {
+          "Path": "/auth-demo/orders/{**catch-all}",
+          "Methods": [ "POST", "PUT", "PATCH", "DELETE" ]
+        },
+        "Transforms": [
+          { "PathRemovePrefix": "/auth-demo" }
+        ]
+      },
+
+      "protected-route-customers-read": {
+        "ClusterId": "protected-cluster-customers-api",
+        "AuthorizationPolicy": "customersReadPolicy",
+        "Match": {
+          "Path": "/auth-demo/customers/{**catch-all}",
+          "Methods": [ "GET", "HEAD", "OPTIONS" ]
+        },
+        "Transforms": [
+          { "PathRemovePrefix": "/auth-demo" }
+        ]
+      },
+      "protected-route-customers-write": {
+        "ClusterId": "protected-cluster-customers-api",
+        "AuthorizationPolicy": "customersWritePolicy",
+        "Match": {
+          "Path": "/auth-demo/customers/{**catch-all}",
+          "Methods": [ "POST", "PUT", "PATCH", "DELETE" ]
+        },
+        "Transforms": [
+          { "PathRemovePrefix": "/auth-demo" }
+        ]
+      }
+    },
+
+    "Clusters": {
+      "protected-cluster-orders-api": {
+        "Destinations": {
+          "destination1": { "Address": "https://orders-api/" }
+        }
+      },
+      "protected-cluster-customers-api": {
+        "Destinations": {
+          "destination1": { "Address": "https://customers-api/" }
+        }
+      }
+    }
+  }
+}

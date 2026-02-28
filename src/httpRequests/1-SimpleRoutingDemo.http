@@ -1,0 +1,47 @@
+@baseUrl = https://localhost:7150
+
+### GET Orders from Simple Routing Demo
+GET {{baseUrl}}/orders
+
+### Post Order to Simple Routing Demo
+Post {{baseUrl}}/orders
+
+{
+    "prop1": "value1"
+}
+
+### Get Order with id 1 from Simple Routing Demo
+GET {{baseUrl}}/orders/1
+
+
+
+
+### Put Order to Simple Routing Demo
+Put {{baseUrl}}/orders/1
+
+{
+    "prop1": "value1"
+}
+
+### GET customers from Simple Routing Demo
+GET {{baseUrl}}/customers
+
+
+### Get Order with id 1 from Simple Routing Demo
+GET {{baseUrl}}/customers/1
+
+
+
+### Post Order to Simple Routing Demo
+Post {{baseUrl}}/customers
+
+{
+    "prop1": "value1"
+}
+
+### Put Order to Simple Routing Demo
+Put {{baseUrl}}/customers/1
+
+{
+    "prop1": "value1"
+}

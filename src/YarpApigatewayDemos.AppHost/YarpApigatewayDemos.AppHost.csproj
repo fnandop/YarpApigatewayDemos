@@ -1,0 +1,18 @@
+<Project Sdk="Aspire.AppHost.Sdk/13.1.2">
+
+  <PropertyGroup>
+    <OutputType>Exe</OutputType>
+    <TargetFramework>net10.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+    <UserSecretsId>6643804e-730f-4f13-a176-72b68e0a2555</UserSecretsId>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\YarpApigatewayDemos.CustomerService\YarpApigatewayDemos.CustomerService.csproj" />
+    <ProjectReference Include="..\YarpApigatewayDemos.IdentityApi\YarpApigatewayDemos.IdentityApi.csproj" />
+    <ProjectReference Include="..\YarpApigatewayDemos.Orders\YarpApigatewayDemos.OrdersService.csproj" />
+    <ProjectReference Include="..\YarpApigatewayDemos.ReverseProxy\YarpApigatewayDemos.ReverseProxy.csproj" />
+  </ItemGroup>
+
+</Project>

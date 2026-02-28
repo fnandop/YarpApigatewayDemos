@@ -1,0 +1,57 @@
+@baseUrl = https://localhost:7150
+@authBaseUrl = https://localhost:7244
+
+
+@client_id = protected-api-client-1
+@client_secret = secret
+@scope = protected-api
+@access_token =eyJhbGciOiJSUzI1NiIsImtpZCI6IjEzNDI5NjI2MUMzQkJCMjJGNEZFOEY4NjUyODZENDkyIiwidHlwIjoiYXQrand0In0.eyJpc3MiOiJodHRwczovL2xvY2FsaG9zdDo3MjQ0IiwibmJmIjoxNzcyMzAxNDIzLCJpYXQiOjE3NzIzMDE0MjMsImV4cCI6MjA4NzY2MTQyMywic2NvcGUiOlsicHJvdGVjdGVkLWFwaSJdLCJjbGllbnRfaWQiOiJwcm90ZWN0ZWQtYXBpLWNsaWVudC0xIiwiY2xpZW50X3RlbmFudElkIjoidGVuYW50LTEiLCJqdGkiOiI0NDUzQ0Q4MEIwNjJGOERDOUZDODRDQTgwNTFDNDRDQiJ9.Z7pgGoO21GjbQOV2lN6MLo8UUeYu4SAkVhK6bzpermd-UlNsnbr7oYnERORrq1QaT6d1_9VLuKbCHo-45A8l3_txMCxk_FIk9NXKhu-hIVyFdRPyZDha73E9W1y3dTpr0EwG1GSBAoGZ8nxyFJMv78SFiXzOK0soh-l6Et_CpA02BmlYvyAoaN9m1GHwH9VgXFQFanSMIdKcGnosL1u9wbb2XMreUGftsmoXnzpEx-tuPWZFH3rChWkfhQJ-52RdsbFBAoInQSzMSnicwZrY8AMX3NYNSfIQN2LB1DfSJIxpE88pLBrSwk_MQIfHKo4mfUKrCpIF36q3WiAraSjL-Q
+
+@baseUrl = https://localhost:7150
+
+### GET Orders from Autho Routing Demo
+GET {{baseUrl}}/auth-demo/orders
+
+### Post Order to Autho Routing Demo
+Post {{baseUrl}}/auth-demo/orders
+
+{
+    "prop1": "value1"
+}
+
+### Get Order with id 1 from Autho Routing Demo
+GET {{baseUrl}}/auth-demo/orders/1
+
+
+
+
+### Put Order to Autho Routing Demo
+Put {{baseUrl}}/auth-demo/orders/1
+
+{
+    "prop1": "value1"
+}
+
+### GET customers from Autho Routing Demo
+GET {{baseUrl}}/auth-demo/customers
+
+
+### Get Order with id 1 from Autho Routing Demo
+GET {{baseUrl}}/auth-demo/customers/1
+
+
+
+### Post Order to Autho Routing Demo
+Post {{baseUrl}}/auth-demo/customers
+
+{
+    "prop1": "value1"
+}
+
+### Put Order to Autho Routing Demo
+Put {{baseUrl}}/auth-demo/customers/1
+
+{
+    "prop1": "value1"
+}
+

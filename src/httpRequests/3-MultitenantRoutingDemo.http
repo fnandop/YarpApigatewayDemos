@@ -1,0 +1,124 @@
+@baseUrl = https://localhost:7150
+@authBaseUrl = https://localhost:7244
+
+
+@client_id_1 = protected-api-client-1
+@client_secret_1 = secret
+
+
+@client_id_2 = protected-api-client-2
+@client_secret_2 = secret
+
+@access_token_client1 =eyJhbGciOiJSUzI1NiIsImtpZCI6IjEzNDI5NjI2MUMzQkJCMjJGNEZFOEY4NjUyODZENDkyIiwidHlwIjoiYXQrand0In0.eyJpc3MiOiJodHRwczovL2xvY2FsaG9zdDo3MjQ0IiwibmJmIjoxNzcyMzAxMzk2LCJpYXQiOjE3NzIzMDEzOTYsImV4cCI6MjA4NzY2MTM5Niwic2NvcGUiOlsicHJvdGVjdGVkLWFwaSJdLCJjbGllbnRfaWQiOiJwcm90ZWN0ZWQtYXBpLWNsaWVudC0xIiwiY2xpZW50X3RlbmFudElkIjoidGVuYW50LTEiLCJqdGkiOiJFQzFDNDNFQ0YyQkZBRUM3RkZGMUIwRDAwNjVBMDExMiJ9.w1wfbIVR0UkgS6_5E-TJbTjHFT79uoI2gbeFotI79FoNDmvJ5ofFdEPnKUEOzk2xAqWXwRh-OWUwy_UF5ZCRx42H9vs1qaZOLfX8fSPrWCbb8lB25V19UaHeWICZ8FiboDiFE26j0J84XTvAB6SDciDOqj_we700f4RIQOuFXWhxJX_VI1no8RuJCrAyZ_6GOHnjqDccN-CZQ6xnbtsUo6EB5YPQ9VvnVkzH0NmmO6cP8ZUO_GAvmuBFKru3AK9f1CCUzviVrAGWOOiGTHUQP2ixHfO_Qo2C7r6KJcRpcZJmWolEVtglxs5XDYv-LNHwsGOMNp9WAdNTYpKOcE7qDg
+@access_token_client2 =eyJhbGciOiJSUzI1NiIsImtpZCI6IjEzNDI5NjI2MUMzQkJCMjJGNEZFOEY4NjUyODZENDkyIiwidHlwIjoiYXQrand0In0.eyJpc3MiOiJodHRwczovL2xvY2FsaG9zdDo3MjQ0IiwibmJmIjoxNzcyMzAxMzM2LCJpYXQiOjE3NzIzMDEzMzYsImV4cCI6MjA4NzY2MTMzNiwic2NvcGUiOlsicHJvdGVjdGVkLWFwaSIsInByb3RlY3RlZC1hcGk6YmFuYW5hcyJdLCJjbGllbnRfaWQiOiJwcm90ZWN0ZWQtYXBpLWNsaWVudC0yIiwiY2xpZW50X3RlbmFudElkIjoidGVuYW50LTIiLCJqdGkiOiJCQTlFQjRDRDEzRDJCQUQ1MzkxNDA5MjIzNEI1MTMyRCJ9.PKbWHzpWWGoI_HTDinMZqXpLOFJdjL9u9AQb3lq5PCWdtOOJxIb5w4u5wyydurOtKlXy8PByfwDHkjROzMSR4SjPubIEKOOHvkTrY6c4XEOWStndV_eQ48nNd1gYYVg0hF3ohEK3UpiY9TahGNHbr_VhPToMzaeHdaFGWxhehzPjRCoKpFFuL8QzkxLKwTGCHK6vxp1J056snUUFfdcWD0y5KOE6i_r0fxBhuQPTJc04hQFsxz5JuQZP4tiFDe_oFAlQNR6Y9G7FhLcIRkYJIV0xRo1SoKqZ-GADsvhnKhqM8Kx0Ywbad7jJS0fGP6ZWtVy8qPJFt8M38H9GzEbf4w
+
+
+### 1) Get access token (client_credentials) and copy the access_token from the response (or use the saved variable)
+POST {{authBaseUrl}}/connect/token
+Content-Type: application/x-www-form-urlencoded
+
+grant_type=client_credentials&client_id={{client_id}}&client_secret={{client_secret}}
+
+
+### Must be authenticated expected Status: 401 Unauthorized
+GET {{baseUrl}}/multitenant/orders
+
+
+
+### GET Orders from Multitenant Route Demo tenant-1 expected Status: 200 OK
+GET {{baseUrl}}/multitenant/orders
+Authorization: Bearer {{access_token_client1}}
+
+
+### GET Orders from Multitenant Route Demo tenant-2 expected Status: 200 OK
+GET {{baseUrl}}/multitenant/orders
+Authorization: Bearer {{access_token_client2}}
+
+
+### Post Order to Multitenant Route Demo tenant-1 expected Status: 200 OK
+Post {{baseUrl}}/multitenant/orders
+Authorization: Bearer {{access_token_client1}}
+{
+    "prop1": "value1"
+}
+
+### Post Order to Multitenant Route Demo tenant-2 expected Status: 200 OK
+Post {{baseUrl}}/multitenant/orders
+Authorization: Bearer {{access_token_client2}}
+{
+    "prop1": "value1"
+}
+
+### Get Order with id 1 from Multitenant Route Demo  tenant-1  Demo Status: 200 OK
+GET {{baseUrl}}/multitenant/orders/1
+Authorization: Bearer {{access_token_client1}}
+
+### Get Order with id 1 from Multitenant Route Demo tenant-2  Demo Status: 200 OK
+GET {{baseUrl}}/multitenant/orders/1
+Authorization: Bearer {{access_token_client2}}
+
+
+
+### Put Order to Multitenant Route  tenant-1  Demo Status: 200 OK
+Put {{baseUrl}}/multitenant/orders/1
+Authorization: Bearer {{access_token_client1}}
+{
+    "prop1": "value1"
+}
+
+### Put Order to Multitenant Route  tenant-2  Demo Status: 200 OK
+Put {{baseUrl}}/multitenant/orders/1
+Authorization: Bearer {{access_token_client2}}
+{
+    "prop1": "value1"
+}
+
+### GET customers from Multitenant Route Demo  tenant-1 Status: 200 OK
+GET {{baseUrl}}/multitenant/customers
+Authorization: Bearer {{access_token_client1}}
+
+### GET customers from Multitenant Route Demo  tenant-2 Status: 200 OK
+GET {{baseUrl}}/multitenant/customers
+Authorization: Bearer {{access_token_client2}}
+
+
+
+### Get Order with id 1 from Multitenant Route Demo  tenant-1 Status: 200 OK
+GET {{baseUrl}}/multitenant/customers/1
+Authorization: Bearer {{access_token_client1}}
+
+### Get Order with id 1 from Multitenant Route Demo  tenant-2 Status: 200 OK
+GET {{baseUrl}}/multitenant/customers/1
+Authorization: Bearer {{access_token_client2}}
+
+
+
+### Post Order to Multitenant Route Demo  tenant-1  Status: 200 OK
+Post {{baseUrl}}/multitenant/customers
+Authorization: Bearer {{access_token_client1}}
+{
+    "prop1": "value1"
+}
+
+### Post Order to Multitenant Route Demo  tenant-2  Status: 200 OK
+Post {{baseUrl}}/multitenant/customers
+Authorization: Bearer {{access_token_client2}}
+{
+    "prop1": "value1"
+}
+
+
+
+### Put Order to Multitenant Route Demo tenant-1  Status: 200 OK
+Put {{baseUrl}}/multitenant/customers/1
+Authorization: Bearer {{access_token_client1}}
+{
+    "prop1": "value1"
+}
+
+### Put Order to Multitenant Route Demo tenant-2 Status: 200 OK
+Put {{baseUrl}}/multitenant/customers/1
+Authorization: Bearer {{access_token_client2}}
+{
+    "prop1": "value1"
+}
