@@ -15,4 +15,8 @@
     <ProjectReference Include="..\YarpApigatewayDemos.ReverseProxy\YarpApigatewayDemos.ReverseProxy.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <PackageReference Include="Aspire.Hosting.Kubernetes" Version="13.1.2-preview.1.26125.13" />
+  </ItemGroup>
+
 </Project>

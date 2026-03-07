@@ -1,4 +1,5 @@
 var builder = DistributedApplication.CreateBuilder(args);
+var k8s = builder.AddKubernetesEnvironment("k8s");
 
 var ordersApi = builder.AddProject<Projects.YarpApigatewayDemos_OrdersService>("orders-api")
     .WithHttpHealthCheck("/health");

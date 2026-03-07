@@ -1,0 +1,27 @@
+---
+apiVersion: "v1"
+kind: "ConfigMap"
+metadata:
+  name: "reverse-proxy-config"
+  labels:
+    app.kubernetes.io/name: "yarpapigatewaydemos-apphost"
+    app.kubernetes.io/component: "reverse-proxy"
+    app.kubernetes.io/instance: "{{.Release.Name}}"
+data:
+  OTEL_DOTNET_EXPERIMENTAL_OTLP_EMIT_EXCEPTION_LOG_ATTRIBUTES: "{{ .Values.config.reverse_proxy.OTEL_DOTNET_EXPERIMENTAL_OTLP_EMIT_EXCEPTION_LOG_ATTRIBUTES }}"
+  OTEL_DOTNET_EXPERIMENTAL_OTLP_EMIT_EVENT_LOG_ATTRIBUTES: "{{ .Values.config.reverse_proxy.OTEL_DOTNET_EXPERIMENTAL_OTLP_EMIT_EVENT_LOG_ATTRIBUTES }}"
+  OTEL_DOTNET_EXPERIMENTAL_OTLP_RETRY: "{{ .Values.config.reverse_proxy.OTEL_DOTNET_EXPERIMENTAL_OTLP_RETRY }}"
+  ASPNETCORE_FORWARDEDHEADERS_ENABLED: "{{ .Values.config.reverse_proxy.ASPNETCORE_FORWARDEDHEADERS_ENABLED }}"
+  HTTP_PORTS: "{{ .Values.config.reverse_proxy.HTTP_PORTS }}"
+  ORDERS_API_HTTP: "{{ .Values.config.reverse_proxy.ORDERS_API_HTTP }}"
+  services__orders-api__http__0: "{{ .Values.config.reverse_proxy.services__orders_api__http__0 }}"
+  ORDERS_API_HTTPS: "{{ .Values.config.reverse_proxy.ORDERS_API_HTTPS }}"
+  services__orders-api__https__0: "{{ .Values.config.reverse_proxy.services__orders_api__https__0 }}"
+  CUSTOMERS_API_HTTP: "{{ .Values.config.reverse_proxy.CUSTOMERS_API_HTTP }}"
+  services__customers-api__http__0: "{{ .Values.config.reverse_proxy.services__customers_api__http__0 }}"
+  CUSTOMERS_API_HTTPS: "{{ .Values.config.reverse_proxy.CUSTOMERS_API_HTTPS }}"
+  services__customers-api__https__0: "{{ .Values.config.reverse_proxy.services__customers_api__https__0 }}"
+  DEMO_IDENTITYSERVER_HTTP: "{{ .Values.config.reverse_proxy.DEMO_IDENTITYSERVER_HTTP }}"
+  services__demo-identityserver__http__0: "{{ .Values.config.reverse_proxy.services__demo_identityserver__http__0 }}"
+  DEMO_IDENTITYSERVER_HTTPS: "{{ .Values.config.reverse_proxy.DEMO_IDENTITYSERVER_HTTPS }}"
+  services__demo-identityserver__https__0: "{{ .Values.config.reverse_proxy.services__demo_identityserver__https__0 }}"

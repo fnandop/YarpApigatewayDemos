@@ -1,0 +1,24 @@
+---
+apiVersion: "v1"
+kind: "Service"
+metadata:
+  name: "orders-api-service"
+  labels:
+    app.kubernetes.io/name: "yarpapigatewaydemos-apphost"
+    app.kubernetes.io/component: "orders-api"
+    app.kubernetes.io/instance: "{{.Release.Name}}"
+spec:
+  type: "ClusterIP"
+  selector:
+    app.kubernetes.io/name: "yarpapigatewaydemos-apphost"
+    app.kubernetes.io/component: "orders-api"
+    app.kubernetes.io/instance: "{{.Release.Name}}"
+  ports:
+    - name: "http"
+      protocol: "TCP"
+      port: {{ .Values.parameters.orders_api.port_http }}
+      targetPort: {{ .Values.parameters.orders_api.port_http }}
+    - name: "https"
+      protocol: "TCP"
+      port: {{ .Values.parameters.orders_api.port_https }}
+      targetPort: {{ .Values.parameters.orders_api.port_https }}
