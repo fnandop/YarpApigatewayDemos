@@ -1,0 +1,109 @@
+{
+  "$schema": "https://json.schemastore.org/aspire-8.0.json",
+  "resources": {
+    "orders-api": {
+      "type": "project.v0",
+      "path": "../YarpApigatewayDemos.Orders/YarpApigatewayDemos.OrdersService.csproj",
+      "env": {
+        "OTEL_DOTNET_EXPERIMENTAL_OTLP_EMIT_EXCEPTION_LOG_ATTRIBUTES": "true",
+        "OTEL_DOTNET_EXPERIMENTAL_OTLP_EMIT_EVENT_LOG_ATTRIBUTES": "true",
+        "OTEL_DOTNET_EXPERIMENTAL_OTLP_RETRY": "in_memory",
+        "ASPNETCORE_FORWARDEDHEADERS_ENABLED": "true",
+        "HTTP_PORTS": "{orders-api.bindings.http.targetPort}"
+      },
+      "bindings": {
+        "http": {
+          "scheme": "http",
+          "protocol": "tcp",
+          "transport": "http"
+        },
+        "https": {
+          "scheme": "https",
+          "protocol": "tcp",
+          "transport": "http"
+        }
+      }
+    },
+    "customers-api": {
+      "type": "project.v0",
+      "path": "../YarpApigatewayDemos.CustomerService/YarpApigatewayDemos.CustomerService.csproj",
+      "env": {
+        "OTEL_DOTNET_EXPERIMENTAL_OTLP_EMIT_EXCEPTION_LOG_ATTRIBUTES": "true",
+        "OTEL_DOTNET_EXPERIMENTAL_OTLP_EMIT_EVENT_LOG_ATTRIBUTES": "true",
+        "OTEL_DOTNET_EXPERIMENTAL_OTLP_RETRY": "in_memory",
+        "ASPNETCORE_FORWARDEDHEADERS_ENABLED": "true",
+        "HTTP_PORTS": "{customers-api.bindings.http.targetPort}"
+      },
+      "bindings": {
+        "http": {
+          "scheme": "http",
+          "protocol": "tcp",
+          "transport": "http"
+        },
+        "https": {
+          "scheme": "https",
+          "protocol": "tcp",
+          "transport": "http"
+        }
+      }
+    },
+    "demo-identityserver": {
+      "type": "project.v0",
+      "path": "../YarpApigatewayDemos.IdentityApi/YarpApigatewayDemos.IdentityApi.csproj",
+      "env": {
+        "OTEL_DOTNET_EXPERIMENTAL_OTLP_EMIT_EXCEPTION_LOG_ATTRIBUTES": "true",
+        "OTEL_DOTNET_EXPERIMENTAL_OTLP_EMIT_EVENT_LOG_ATTRIBUTES": "true",
+        "OTEL_DOTNET_EXPERIMENTAL_OTLP_RETRY": "in_memory",
+        "ASPNETCORE_FORWARDEDHEADERS_ENABLED": "true",
+        "HTTP_PORTS": "{demo-identityserver.bindings.http.targetPort}"
+      },
+      "bindings": {
+        "http": {
+          "scheme": "http",
+          "protocol": "tcp",
+          "transport": "http"
+        },
+        "https": {
+          "scheme": "https",
+          "protocol": "tcp",
+          "transport": "http"
+        }
+      }
+    },
+    "reverse-proxy": {
+      "type": "project.v0",
+      "path": "../YarpApigatewayDemos.ReverseProxy/YarpApigatewayDemos.ReverseProxy.csproj",
+      "env": {
+        "OTEL_DOTNET_EXPERIMENTAL_OTLP_EMIT_EXCEPTION_LOG_ATTRIBUTES": "true",
+        "OTEL_DOTNET_EXPERIMENTAL_OTLP_EMIT_EVENT_LOG_ATTRIBUTES": "true",
+        "OTEL_DOTNET_EXPERIMENTAL_OTLP_RETRY": "in_memory",
+        "ASPNETCORE_FORWARDEDHEADERS_ENABLED": "true",
+        "HTTP_PORTS": "{reverse-proxy.bindings.http.targetPort}",
+        "ORDERS_API_HTTP": "{orders-api.bindings.http.url}",
+        "services__orders-api__http__0": "{orders-api.bindings.http.url}",
+        "ORDERS_API_HTTPS": "{orders-api.bindings.https.url}",
+        "services__orders-api__https__0": "{orders-api.bindings.https.url}",
+        "CUSTOMERS_API_HTTP": "{customers-api.bindings.http.url}",
+        "services__customers-api__http__0": "{customers-api.bindings.http.url}",
+        "CUSTOMERS_API_HTTPS": "{customers-api.bindings.https.url}",
+        "services__customers-api__https__0": "{customers-api.bindings.https.url}",
+        "DEMO_IDENTITYSERVER_HTTP": "{demo-identityserver.bindings.http.url}",
+        "services__demo-identityserver__http__0": "{demo-identityserver.bindings.http.url}",
+        "DEMO_IDENTITYSERVER_HTTPS": "{demo-identityserver.bindings.https.url}",
+        "services__demo-identityserver__https__0": "{demo-identityserver.bindings.https.url}"
+      },
+      "bindings": {
+        "http": {
+          "scheme": "http",
+          "protocol": "tcp",
+          "transport": "http"
+        },
+        "https": {
+          "scheme": "https",
+          "protocol": "tcp",
+          "transport": "http"
+        }
+      }
+    }
+  }
+}

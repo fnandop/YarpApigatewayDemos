@@ -15,7 +15,7 @@ var configuration = builder.Configuration;
 builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
 .AddJwtBearer(jwtOptions =>
 {
-    jwtOptions.Authority = configuration["services:identityserver:https:0"];
+    jwtOptions.Authority = configuration["services:demo-identityserver:https:0"];
     jwtOptions.TokenValidationParameters.ValidateAudience = false;
 });
 

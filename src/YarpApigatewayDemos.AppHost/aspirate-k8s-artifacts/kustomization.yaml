@@ -1,0 +1,14 @@
+namespace: yarp-apigateway-demo
+
+resources:
+- orders-api
+- customers-api
+- demo-identityserver
+- reverse-proxy
+- namespace.yaml
+- dashboard.yaml
+
+generatorOptions:
+  disableNameSuffixHash: true
+
+

@@ -6,7 +6,7 @@ var ordersApi = builder.AddProject<Projects.YarpApigatewayDemos_OrdersService>("
 var customersApi = builder.AddProject<Projects.YarpApigatewayDemos_CustomerService>("customers-api")
     .WithHttpHealthCheck("/health");
 
-var identityserver = builder.AddProject<Projects.YarpApigatewayDemos_IdentityApi>("identityserver");
+var identityserver = builder.AddProject<Projects.YarpApigatewayDemos_IdentityApi>("demo-identityserver");
 
 builder.AddProject<Projects.YarpApigatewayDemos_ReverseProxy>("reverse-proxy")
     .WithReference(ordersApi)
