@@ -10,7 +10,6 @@
 
   <ItemGroup>
     <ProjectReference Include="..\YarpApigatewayDemos.CustomerService\YarpApigatewayDemos.CustomerService.csproj" />
-    <ProjectReference Include="..\YarpApigatewayDemos.IdentityApi\YarpApigatewayDemos.IdentityApi.csproj" />
     <ProjectReference Include="..\YarpApigatewayDemos.Orders\YarpApigatewayDemos.OrdersService.csproj" />
     <ProjectReference Include="..\YarpApigatewayDemos.ReverseProxy\YarpApigatewayDemos.ReverseProxy.csproj" />
   </ItemGroup>

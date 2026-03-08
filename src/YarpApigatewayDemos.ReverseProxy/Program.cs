@@ -1,6 +1,5 @@
-using Microsoft.AspNetCore.Authentication.JwtBearer;
-using Microsoft.IdentityModel.Tokens;
 using Yarp.ReverseProxy.Transforms;
+using YarpApigatewayDemos.ReverseProxy.Handlers;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -11,21 +10,18 @@ builder.Configuration
 
 builder.AddServiceDefaults();              // Aspire defaults (incl. service discovery)
 
-var configuration = builder.Configuration;
-builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
-.AddJwtBearer(jwtOptions =>
-{
-    jwtOptions.Authority = configuration["services:demo-identityserver:https:0"];
-    jwtOptions.TokenValidationParameters.ValidateAudience = false;
-});
+builder.Services.AddAuthentication(EasyAuthAuthenticationHandler.EASY_AUTH_SCHEME_NAME)
+                .AddAzureEasyAuthHandler();
+builder.Services.AddAuthorization();
 
 
+// Based on entra id app roles https://learn.microsoft.com/en-us/entra/identity-platform/howto-add-app-roles-in-apps
 builder.Services.AddAuthorizationBuilder()
-    .AddPolicy("requireAuthenticatedUser", p => p.RequireAuthenticatedUser())
-    .AddPolicy("ordersReadPolicy", p => p.RequireAuthenticatedUser().RequireClaim("scope", "orders.read"))
-    .AddPolicy("ordersWritePolicy", p => p.RequireAuthenticatedUser().RequireClaim("scope", "orders.write"))
-    .AddPolicy("customersReadPolicy", p => p.RequireAuthenticatedUser().RequireClaim("scope", "customers.read"))
-    .AddPolicy("customersWritePolicy", p => p.RequireAuthenticatedUser().RequireClaim("scope", "customers.write"));
+    .AddPolicy("requireAuthenticatedUser", p => p.RequireAuthenticatedUser()) 
+    .AddPolicy("ordersReadPolicy", p => p.RequireAuthenticatedUser().RequireClaim("roles",     "orders.read"))
+    .AddPolicy("ordersWritePolicy", p => p.RequireAuthenticatedUser().RequireClaim("roles",    "orders.write"))
+    .AddPolicy("customersReadPolicy", p => p.RequireAuthenticatedUser().RequireClaim("roles",  "customers.read"))
+    .AddPolicy("customersWritePolicy", p => p.RequireAuthenticatedUser().RequireClaim("roles", "customers.write"));
 
 
 
@@ -41,7 +37,7 @@ builder.Services.AddReverseProxy()
 
            builderContext.AddRequestTransform(transformContext =>
            {
-               var tenantId = transformContext.HttpContext.User?.FindFirst("client_tenantId")?.Value;
+               var tenantId = transformContext.HttpContext.User?.FindFirst("tid")?.Value;
                if (!string.IsNullOrEmpty(tenantId))
                {
                    var originalPath = (transformContext.Path.Value ?? string.Empty).TrimStart('/');

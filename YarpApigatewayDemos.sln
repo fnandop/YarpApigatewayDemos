@@ -9,12 +9,10 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "YarpApigatewayDemos.Service
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "YarpApigatewayDemos.ReverseProxy", "src\YarpApigatewayDemos.ReverseProxy\YarpApigatewayDemos.ReverseProxy.csproj", "{4A717FE2-0E2D-9C64-EE9B-5B470CB2DA4E}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "YarpApigatewayDemos.IdentityApi", "src\YarpApigatewayDemos.IdentityApi\YarpApigatewayDemos.IdentityApi.csproj", "{B19747C0-EEF1-5D73-4B65-6ACC72BDF7B4}"
-EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "httpRequests", "httpRequests", "{B43423A2-1F92-413C-AE3A-C036434A291E}"
 	ProjectSection(SolutionItems) = preProject
-		src\httpRequests\2-AuthDemo-client-1.http = src\httpRequests\2-AuthDemo-client-1.http
 		src\httpRequests\1-SimpleRoutingDemo.http = src\httpRequests\1-SimpleRoutingDemo.http
+		src\httpRequests\2-AuthDemo-client-1.http = src\httpRequests\2-AuthDemo-client-1.http
 		src\httpRequests\2-AuthDemo-client-2.http = src\httpRequests\2-AuthDemo-client-2.http
 		src\httpRequests\2-AuthDemo-Unauthorized.http = src\httpRequests\2-AuthDemo-Unauthorized.http
 		src\httpRequests\3-MultitenantRoutingDemo.http = src\httpRequests\3-MultitenantRoutingDemo.http
@@ -27,6 +25,7 @@ EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{2351242F-DC77-4777-BB56-DCE5158B71EE}"
 	ProjectSection(SolutionItems) = preProject
 		.editorconfig = .editorconfig
+		README.md = README.md
 	EndProjectSection
 EndProject
 Global
@@ -47,10 +46,6 @@ Global
 		{4A717FE2-0E2D-9C64-EE9B-5B470CB2DA4E}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{4A717FE2-0E2D-9C64-EE9B-5B470CB2DA4E}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{4A717FE2-0E2D-9C64-EE9B-5B470CB2DA4E}.Release|Any CPU.Build.0 = Release|Any CPU
-		{B19747C0-EEF1-5D73-4B65-6ACC72BDF7B4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{B19747C0-EEF1-5D73-4B65-6ACC72BDF7B4}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{B19747C0-EEF1-5D73-4B65-6ACC72BDF7B4}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{B19747C0-EEF1-5D73-4B65-6ACC72BDF7B4}.Release|Any CPU.Build.0 = Release|Any CPU
 		{06C7A7C4-64A5-E524-997F-B2F5223A9021}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{06C7A7C4-64A5-E524-997F-B2F5223A9021}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{06C7A7C4-64A5-E524-997F-B2F5223A9021}.Release|Any CPU.ActiveCfg = Release|Any CPU
