@@ -17,8 +17,8 @@ spec:
     - name: "http"
       protocol: "TCP"
       port: {{ .Values.parameters.customers_api.port_http }}
-      targetPort: {{ .Values.parameters.customers_api.port_http }}
+      targetPort:  {{ .Values.parameters.customers_api.port_http }}
     - name: "https"
       protocol: "TCP"
       port: {{ .Values.parameters.customers_api.port_https }}
-      targetPort: {{ .Values.parameters.customers_api.port_https }}
+      targetPort:  {{ .Values.parameters.customers_api.port_https }}

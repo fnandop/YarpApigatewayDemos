@@ -51,12 +51,12 @@
     "Clusters": {
       "protected-cluster-orders-api": {
         "Destinations": {
-          "destination1": { "Address": "https://orders-api/" }
+          "destination1": { "Address": "http://orders-api/" }
         }
       },
       "protected-cluster-customers-api": {
         "Destinations": {
-          "destination1": { "Address": "https://customers-api/" }
+          "destination1": { "Address": "http://customers-api/" }
         }
       }
     }

@@ -1,19 +1,19 @@
 parameters:
   orders_api:
-    port_http: 8080
-    port_https: 8443
+    port_http: "8080"
+    port_https: "8343"
     orders_api_image: "orders-api:latest"
   customers_api:
-    port_http: 8080
-    port_https: 8443
+    port_http: "8080"
+    port_https: "8343"
     customers_api_image: "customers-api:latest"
   demo_identityserver:
-    port_http: 8080
-    port_https: 8443
+    port_http: "8080"
+    port_https: "8343"
     demo_identityserver_image: "demo-identityserver:latest"
   reverse_proxy:
-    port_http: 8080
-    port_https: 8443
+    port_http: "8080"
+    port_https: "8343"
     reverse_proxy_image: "reverse-proxy:latest"
 secrets: {}
 config:

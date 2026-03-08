@@ -17,8 +17,8 @@ spec:
     - name: "http"
       protocol: "TCP"
       port: {{ .Values.parameters.reverse_proxy.port_http }}
-      targetPort: {{ .Values.parameters.reverse_proxy.port_http }}
+      targetPort:  {{ .Values.parameters.reverse_proxy.port_http }}
     - name: "https"
       protocol: "TCP"
       port: {{ .Values.parameters.reverse_proxy.port_https }}
-      targetPort: {{ .Values.parameters.reverse_proxy.port_https }}
+      targetPort:  {{ .Values.parameters.reverse_proxy.port_https }}

@@ -17,8 +17,8 @@ spec:
     - name: "http"
       protocol: "TCP"
       port: {{ .Values.parameters.demo_identityserver.port_http }}
-      targetPort: {{ .Values.parameters.demo_identityserver.port_http }}
+      targetPort:  {{ .Values.parameters.demo_identityserver.port_http }}
     - name: "https"
       protocol: "TCP"
       port: {{ .Values.parameters.demo_identityserver.port_https }}
-      targetPort: {{ .Values.parameters.demo_identityserver.port_https }}
+      targetPort:  {{ .Values.parameters.demo_identityserver.port_https }}

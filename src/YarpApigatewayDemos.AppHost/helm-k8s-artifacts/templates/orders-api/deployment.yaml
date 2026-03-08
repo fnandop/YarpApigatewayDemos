@@ -24,10 +24,10 @@ spec:
           ports:
             - name: "http"
               protocol: "TCP"
-              containerPort: {{ .Values.parameters.orders_api.port_http }}
+              containerPort:  {{ .Values.parameters.orders_api.port_http }}
             - name: "https"
               protocol: "TCP"
-              containerPort: {{ .Values.parameters.orders_api.port_https }}
+              containerPort:  {{ .Values.parameters.orders_api.port_https }}
           imagePullPolicy: "IfNotPresent"
   selector:
     matchLabels:

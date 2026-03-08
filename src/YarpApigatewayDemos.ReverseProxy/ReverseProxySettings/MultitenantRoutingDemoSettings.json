@@ -27,14 +27,14 @@
       "multitenant-cluster-orders-api": {
         "Destinations": {
           "destination1": {
-            "Address": "https://orders-api"
+            "Address": "http://orders-api"
           }
         }
       },
       "multitenant-cluster-customers-api": {
         "Destinations": {
           "destination1": {
-            "Address": "https://customers-api"
+            "Address": "http://customers-api"
           }
         }
       }
